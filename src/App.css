@@ -1,0 +1,9 @@
+html,
+body,
+body > div {
+  height: 100%;
+}
+
+.error-message {
+  color: #e53e3e;
+}
