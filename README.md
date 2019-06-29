@@ -1,3 +1,3 @@
-# Trello Clone
+# TaskBoard
 
-A simple trello clone
+A simple kanban-inspired taskboard app.

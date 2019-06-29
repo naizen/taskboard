@@ -4,8 +4,7 @@ import { withRouter } from 'react-router-dom'
 import { authActions, requestRegister } from '../features/auth'
 
 function RegisterScreen({ history }) {
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
+  const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const dispatch = useDispatch()
   const auth = useSelector(state => state.auth)
@@ -19,7 +18,7 @@ function RegisterScreen({ history }) {
   const handleSubmit = e => {
     e.preventDefault()
 
-    dispatch(requestRegister({ name, email, password, history }))
+    dispatch(requestRegister({ username, password, history }))
   }
 
   return (
@@ -34,28 +33,15 @@ function RegisterScreen({ history }) {
           )}
           <div className="mb-4">
             <label className="block text-gray-700 text-sm font-bold mb-2">
-              Display Name
+              Username
             </label>
             <input
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               id="username"
               type="text"
-              placeholder="Name"
-              value={name}
-              onChange={e => setName(e.target.value)}
-            />
-          </div>
-          <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2">
-              Email
-            </label>
-            <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="email"
-              type="email"
-              placeholder="Email"
-              value={email}
-              onChange={e => setEmail(e.target.value)}
+              placeholder="Username"
+              value={username}
+              onChange={e => setUsername(e.target.value)}
             />
           </div>
           <div className="mb-6">

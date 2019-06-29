@@ -4,7 +4,7 @@ import { authActions, requestLogin } from '../features/auth'
 import { withRouter } from 'react-router-dom'
 
 function LoginScreen({ history }) {
-  const [email, setEmail] = useState('')
+  const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const dispatch = useDispatch()
   const auth = useSelector(state => state.auth)
@@ -18,7 +18,7 @@ function LoginScreen({ history }) {
   const onSubmit = event => {
     event.preventDefault()
 
-    dispatch(requestLogin({ email, password, history }))
+    dispatch(requestLogin({ username, password, history }))
   }
 
   return (
@@ -26,22 +26,27 @@ function LoginScreen({ history }) {
       <div className="w-full max-w-sm">
         <h2 className="text-2xl mb-2">Please Log In</h2>
         <form
-          className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+          className="bg-white shadow-md rounded px-8 pt-4 pb-8 mb-4"
           onSubmit={onSubmit}>
           {auth.errorMessage && (
-            <p className="error-message mb-4">{auth.errorMessage}</p>
+            <div className="error-message mb-2">{auth.errorMessage}</div>
           )}
+          <div class="text-gray-500 mb-3">
+            Demo Account: <br />
+            Username: Demo <br />
+            Password: demo
+          </div>
           <div className="mb-4">
             <label className="block text-gray-700 text-sm font-bold mb-2">
-              Email
+              Username
             </label>
             <input
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="email"
-              type="email"
-              placeholder="Email"
-              value={email}
-              onChange={e => setEmail(e.target.value)}
+              id="username"
+              type="text"
+              placeholder="Username"
+              value={username}
+              onChange={e => setUsername(e.target.value)}
             />
           </div>
           <div className="mb-6">

@@ -75,18 +75,17 @@ function AddTask({ listId }) {
             onChange={e => setContent(e.target.value)}
             value={content}
             autoFocus={true}
+            onBlur={closeForm}
           />
           <SubmitButton
             className="bg-green-500 border-green-600 shadow text-white"
-            type="submit"
-          >
+            type="submit">
             Add Task
           </SubmitButton>
           <button
             type="button"
             style={{ marginLeft: 10, outline: 0 }}
-            onClick={closeForm}
-          >
+            onClick={closeForm}>
             <CloseIcon />
           </button>
         </Form>

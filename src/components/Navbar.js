@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { logOut } from '../features/auth'
+import { ReactComponent as BoardIconSvg } from '../icons/dashboard.svg'
 
 const NavLinks = styled.ul`
   list-style: none;
@@ -17,6 +18,12 @@ const NavbarContainer = styled.div`
   position: absolute;
 `
 
+const BoardIcon = styled(BoardIconSvg)`
+  display: inline-block;
+  fill: rgba(255, 255, 255, 0.6);
+  vertical-align: top;
+`
+
 function Navbar({ auth }) {
   const dispatch = useDispatch()
 
@@ -28,14 +35,14 @@ function Navbar({ auth }) {
     <NavbarContainer className="w-full py-4 px-4">
       <nav className="flex mx-auto items-center justify-between">
         <Link className="px-3" to="/">
-          Trello Clone
+          <BoardIcon /> TaskBoard
         </Link>
         <NavLinks className="flex">
           {auth.isLoggedIn ? (
             <>
               <li>
                 <Link className="px-3" to="/">
-                  {auth.user.name}
+                  {auth.user.username}
                 </Link>
                 <button className="px-3" onClick={handleLogOut}>
                   Log out

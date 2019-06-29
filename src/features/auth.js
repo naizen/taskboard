@@ -31,12 +31,12 @@ export { auth }
 
 export const authActions = auth.actions
 
-export function requestLogin({ email, password, history }) {
+export function requestLogin({ username, password, history }) {
   return dispatch => {
     dispatch(auth.actions.setIsLoading(true))
     dispatch(auth.actions.setErrorMessage(''))
     return axios
-      .post('/api/login', { email, password })
+      .post('/api/login', { username, password })
       .then(response => {
         const user = response.data.user
         const token = response.data.token
@@ -52,12 +52,12 @@ export function requestLogin({ email, password, history }) {
   }
 }
 
-export function requestRegister({ name, email, password, history }) {
+export function requestRegister({ username, password, history }) {
   return dispatch => {
     dispatch(auth.actions.setIsLoading(true))
     dispatch(auth.actions.setErrorMessage(''))
     return axios
-      .post('/api/register', { name, email, password })
+      .post('/api/register', { username, password })
       .then(response => {
         const user = response.data.user
         const token = response.data.token
