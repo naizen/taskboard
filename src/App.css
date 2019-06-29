@@ -7,3 +7,8 @@ body > div {
 .error-message {
   color: #e53e3e;
 }
+
+button[disabled] {
+  opacity: 0.6;
+  pointer-events: none;
+}
