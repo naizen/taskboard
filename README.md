@@ -1,3 +1,3 @@
 # TaskBoard
 
-A simple kanban taskboard app.
+A simple kanban-inspired taskboard app.
