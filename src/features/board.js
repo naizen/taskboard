@@ -1,5 +1,6 @@
 import { createSlice } from 'redux-starter-kit'
 import axios from 'axios'
+import { baseApiUrl } from '../configs'
 
 const board = createSlice({
   slice: 'board',
@@ -130,7 +131,7 @@ export function fetchBoard() {
     const { auth } = getState()
 
     return axios
-      .get('/api/lists', { params: { userId: auth.user._id } })
+      .get(baseApiUrl + '/api/lists', { params: { userId: auth.user._id } })
       .then(response => {
         const { lists, tasks } = response.data
         lists.forEach(list => {
@@ -157,7 +158,7 @@ export function sortLists(lists) {
     const orderedLists = lists.map((list, i) => ({ ...list, order: i }))
     dispatch(boardActions.setLists(orderedLists))
     return axios
-      .put('/api/lists/order', { lists: orderedLists })
+      .put(baseApiUrl + '/api/lists/order', { lists: orderedLists })
       .then(response => {
         console.log('response: ', response)
       })
@@ -168,7 +169,7 @@ export function addList(title) {
   return (dispatch, getState) => {
     const { auth } = getState()
     return axios
-      .post('/api/lists', { user: auth.user, title })
+      .post(baseApiUrl + '/api/lists', { user: auth.user, title })
       .then(response => {
         const { list } = response.data
         list.taskIds = []
@@ -180,14 +181,14 @@ export function addList(title) {
 export function removeList(id) {
   return dispatch => {
     dispatch(boardActions.removeList({ id }))
-    return axios.put('/api/lists/remove', { id })
+    return axios.put(baseApiUrl + '/api/lists/remove', { id })
   }
 }
 
 export function updateList(updates) {
   return dispatch => {
     dispatch(boardActions.updateList(updates))
-    return axios.put('/api/lists/update', updates)
+    return axios.put(baseApiUrl + '/api/lists/update', updates)
   }
 }
 
@@ -195,7 +196,7 @@ export function addTask({ listId, content }) {
   return (dispatch, getState) => {
     const { auth } = getState()
     return axios
-      .post('/api/tasks', { user: auth.user, listId, content })
+      .post(baseApiUrl + '/api/tasks', { user: auth.user, listId, content })
       .then(response => {
         const { task } = response.data
         dispatch(boardActions.addTask(task))
@@ -206,7 +207,9 @@ export function addTask({ listId, content }) {
 export function sortTasks(sourceList, taskIds) {
   return dispatch => {
     dispatch(boardActions.sortTasks({ sourceList, taskIds }))
-    return axios.put('/api/tasks/order', { taskIds }).then(response => {})
+    return axios
+      .put(baseApiUrl + '/api/tasks/order', { taskIds })
+      .then(response => {})
   }
 }
 
@@ -214,7 +217,7 @@ export function moveTask(sourceList, destList) {
   return dispatch => {
     dispatch(boardActions.moveTask({ sourceList, destList }))
     return axios
-      .put('/api/tasks/move', { sourceList, destList })
+      .put(baseApiUrl + '/api/tasks/move', { sourceList, destList })
       .then(response => {})
   }
 }
@@ -222,13 +225,13 @@ export function moveTask(sourceList, destList) {
 export function removeTask(task) {
   return dispatch => {
     dispatch(boardActions.removeTask(task))
-    return axios.put('/api/tasks/remove', { task })
+    return axios.put(baseApiUrl + '/api/tasks/remove', { task })
   }
 }
 
 export function updateTask(updates) {
   return dispatch => {
     dispatch(boardActions.updateTask(updates))
-    return axios.put('/api/tasks/update', updates)
+    return axios.put(baseApiUrl + '/api/tasks/update', updates)
   }
 }

@@ -2,6 +2,7 @@ import { createSlice } from 'redux-starter-kit'
 import axios from 'axios'
 import jwt_decode from 'jwt-decode'
 import { boardActions } from './board'
+import { baseApiUrl } from '../configs'
 
 const auth = createSlice({
   slice: 'auth',
@@ -36,7 +37,7 @@ export function requestLogin({ username, password, history }) {
     dispatch(auth.actions.setIsLoading(true))
     dispatch(auth.actions.setErrorMessage(''))
     return axios
-      .post('/api/login', { username, password })
+      .post(baseApiUrl + '/api/login', { username, password })
       .then(response => {
         const user = response.data.user
         const token = response.data.token
@@ -57,7 +58,7 @@ export function requestRegister({ username, password, history }) {
     dispatch(auth.actions.setIsLoading(true))
     dispatch(auth.actions.setErrorMessage(''))
     return axios
-      .post('/api/register', { username, password })
+      .post(baseApiUrl + '/api/register', { username, password })
       .then(response => {
         const user = response.data.user
         const token = response.data.token
