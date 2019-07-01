@@ -2,9 +2,9 @@ import React, { useState, useEffect, Fragment } from 'react'
 import { useDispatch } from 'react-redux'
 import styled from 'styled-components'
 import { Draggable } from 'react-beautiful-dnd'
-import { ReactComponent as EditIconSvg } from '../icons/edit.svg'
-import { ReactComponent as CloseIconSvg } from '../icons/close.svg'
-import { ReactComponent as DeleteIconSvg } from '../icons/delete.svg'
+import { ReactComponent as EditIconSvg } from '../assets/edit.svg'
+import { ReactComponent as CloseIconSvg } from '../assets/close.svg'
+import { ReactComponent as DeleteIconSvg } from '../assets/delete.svg'
 import { removeTask, updateTask } from '../features/board'
 
 const Container = styled.div`

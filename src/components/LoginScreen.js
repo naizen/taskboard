@@ -2,6 +2,14 @@ import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { authActions, requestLogin } from '../features/auth'
 import { withRouter } from 'react-router-dom'
+import styled from 'styled-components'
+import { ReactComponent as LoadingSvg } from '../assets/oval.svg'
+
+const LoadingIcon = styled(LoadingSvg)`
+  width: 24px;
+  margin-left: 15px;
+  display: inline-block;
+`
 
 function LoginScreen({ history }) {
   const [username, setUsername] = useState('')
@@ -67,7 +75,13 @@ function LoginScreen({ history }) {
               className="w-full text-lg bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded"
               type="submit"
               disabled={auth.isLoading ? true : false}>
-              {auth.isLoading ? 'Logging In...' : 'Log In'}
+              {auth.isLoading ? (
+                <span>
+                  Logging you in... <LoadingIcon />
+                </span>
+              ) : (
+                <span>Log In</span>
+              )}
             </button>
           </div>
         </form>

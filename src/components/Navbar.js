@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { logOut } from '../features/auth'
-import { ReactComponent as BoardIconSvg } from '../icons/dashboard.svg'
+import { ReactComponent as BoardIconSvg } from '../assets/dashboard.svg'
 
 const NavLinks = styled.ul`
   list-style: none;

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
-import { ReactComponent as MoreHorizSvg } from '../icons/more_horiz.svg'
-import { ReactComponent as DeleteSvg } from '../icons/delete.svg'
+import { ReactComponent as MoreHorizSvg } from '../assets/more_horiz.svg'
+import { ReactComponent as DeleteSvg } from '../assets/delete.svg'
 import { removeList } from '../features/board'
 import { useDispatch } from 'react-redux'
 

@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import styled from 'styled-components'
-import { ReactComponent as AddIconSvg } from '../icons/add.svg'
-import { ReactComponent as CloseIconSvg } from '../icons/close.svg'
+import { ReactComponent as AddIconSvg } from '../assets/add.svg'
+import { ReactComponent as CloseIconSvg } from '../assets/close.svg'
 import { addList } from '../features/board'
 
 const Container = styled.div`
