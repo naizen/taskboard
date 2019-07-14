@@ -10,7 +10,7 @@ A simple Trello-inspired kanban taskboard app. It uses React for the frontend, R
 
 ## Demo
 
-[https://taskboard-app.netlify.com/]
+https://taskboard-app.netlify.com
 
 ## Installation
 
