@@ -1,3 +1,22 @@
-# TaskBoard
+## TaskBoard
 
-A simple kanban-inspired taskboard app.
+A simple Trello-inspired kanban taskboard app. It uses React for the frontend, Redux for state management and Node/MongoDB for the backend.
+
+## Features
+
+- CRUD lists and tasks
+- Drag N Drop of lists and tasks using [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd)
+- User authentication with JSON Web Token
+
+## Demo
+
+[https://taskboard-app.netlify.com/]
+
+## Installation
+
+```sh
+git clone https://github.com/naizen/taskboard.git
+cd taskboard
+npm install
+npm start
+```
