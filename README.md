@@ -2,7 +2,7 @@
 
 A simple Trello-inspired kanban taskboard app. It uses React for the frontend, Redux for state management and Node/MongoDB for the backend.
 
-![preview](https://github.com/naizen/taskboard/blob/master/src/assets/demo.gif)
+![preview](https://github.com/naizen/taskboard/blob/master/client/src/assets/demo.gif)
 
 ## Features
 
