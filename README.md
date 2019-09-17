@@ -13,12 +13,3 @@ A simple Trello-inspired kanban taskboard app. It uses React for the frontend, R
 ## Demo
 
 https://taskboard-app.netlify.com
-
-## Installation
-
-```sh
-git clone https://github.com/naizen/taskboard.git
-cd taskboard
-npm install
-npm start
-```
