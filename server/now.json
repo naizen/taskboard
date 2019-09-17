@@ -1,0 +1,7 @@
+{
+  "env": {
+    "MONGODB_URI": "@taskboard-db-uri",
+    "SALT_ROUNDS": "@taskboard-salt-rounds",
+    "JWT_SECRET": "@taskboard-jwt-secret"
+  }
+}
